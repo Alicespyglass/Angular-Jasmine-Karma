@@ -78,6 +78,33 @@ describe('TodosComponent', () => {
       expect(component.message).toBe(error);
     });
 
+    // 7d - lecture 10 - Working with confirmation boxes
+    it('it should call the server to delete a todo item if the user confirms', () => {
+        // create a spy on the window for confirmation
+        spyOn(window, 'confirm').and.returnValue(true);
+        
+        // spy on service
+        let spy = spyOn(service, 'delete').and.returnValue(Observable.empty());
+
+        // Act - delete id 1
+        component.delete(1);
+
+        // Assert - delete method to have been called using the value passed
+        expect(spy).toHaveBeenCalledWith(1);
+    });
+
+    it('it should NOT call the server to delete a todo item if the user cancels', () => {
+        // create a spy on the window for confirmation
+        spyOn(window, 'confirm').and.returnValue(false);
+        // spy on service
+        let spy = spyOn(service, 'delete').and.returnValue(Observable.empty());
+
+        // Act - delete id 1
+        component.delete(1);
+
+        // Assert - delete method to have been called using the value passed
+        expect(spy).not.toHaveBeenCalledWith();
+    });
 
 
 });

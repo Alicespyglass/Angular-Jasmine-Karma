@@ -10,14 +10,14 @@ describe('LikeComponent', () => {
     });
 
     describe('click - on iLike = false.', () => {
-        fit('On click, iLike = true', () => {
+        it('On click, iLike = true', () => {
             // act - click on heart
             component.click();
             // assert
             expect(component.iLike).toBe(true);
         });
 
-        fit('On click, totalLikes to increase by 1', () => {
+        it('On click, totalLikes to increase by 1', () => {
             let count = component.totalLikes
             component.click();
 
@@ -31,14 +31,14 @@ describe('LikeComponent', () => {
             component.iLike = true;
         })
 
-        fit('On click, iLike = false', () => {
+        it('On click, iLike = false', () => {
             // act - click on heart
             component.click();
             // assert
             expect(component.iLike).toBe(false);
         });
 
-        fit('On click, totalLikes to decrease by 1', () => {
+        it('On click, totalLikes to decrease by 1', () => {
             let count = component.totalLikes
             component.click();
 

@@ -7,7 +7,7 @@ describe('VoterComponent', () => {
         component = new VoterComponent;
     });
 
-    fit('it should tally up votes correctly', ()=> {
+    it('it should tally up votes correctly', ()=> {
         component.myVote = 5;
         component.othersVote = 15;
 
@@ -16,7 +16,7 @@ describe('VoterComponent', () => {
 
     describe('When I upVote: ', () => {
         // when clicking upVote, myVote = 1;
-        fit('it should increase totalVotes by 1', () => {
+        it('it should increase totalVotes by 1', () => {
             // Act
             component.upVote();
 
@@ -24,7 +24,7 @@ describe('VoterComponent', () => {
             expect(component.totalVotes).toBe(1);
         });
 
-        fit('it should NOT increase totalVotes if myVote is already 1', () => {
+        it('it should NOT increase totalVotes if myVote is already 1', () => {
 
             component.myVote = 1;
             // component.myVoteChanged.subscribe(t => myVote = t);
@@ -39,7 +39,7 @@ describe('VoterComponent', () => {
 
     describe('When I downVote: ', () => {
         // when clicking upVote, myVote = 1;
-        fit('it should decrease totalVotes by 1', () => {
+        it('it should decrease totalVotes by 1', () => {
             component.othersVote = 1;
             // Act
             component.downVote();
@@ -48,7 +48,7 @@ describe('VoterComponent', () => {
             expect(component.totalVotes).toBe(0);
         });
 
-        fit('it should NOT decrease totalVotes if myVote is already -1', () => {
+        it('it should NOT decrease totalVotes if myVote is already -1', () => {
             component.othersVote = 1;
             component.myVote = -1;
             // component.myVoteChanged.subscribe(t => myVote = t);
